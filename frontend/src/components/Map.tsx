@@ -18,6 +18,7 @@ export default function Map({ issues }: { issues: Issue[] }) {
   const defaultPosition: [number, number] = [19.0760, 72.8777]; // Mumbai center
 
   return (
+    // @ts-ignore
     <MapContainer 
       center={defaultPosition} 
       zoom={12} 
