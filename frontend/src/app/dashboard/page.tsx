@@ -58,9 +58,10 @@ export default function Dashboard() {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        const API_URL = process.env.NODE_ENV === 'production' ? '/api/backend' : 'http://localhost:8000';
         const [issuesRes, statsRes] = await Promise.all([
-          fetch("http://localhost:8000/dashboard/issues"),
-          fetch("http://localhost:8000/dashboard/stats")
+          fetch(`${API_URL}/dashboard/issues`),
+          fetch(`${API_URL}/dashboard/stats`)
         ]);
         
         if (issuesRes.ok) setIssues(await issuesRes.json());
@@ -89,7 +90,8 @@ export default function Dashboard() {
     setIsChatLoading(true);
 
     try {
-      const res = await fetch("http://localhost:8000/chat", {
+      const API_URL = process.env.NODE_ENV === 'production' ? '/api/backend' : 'http://localhost:8000';
+      const res = await fetch(`${API_URL}/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: userMessage })

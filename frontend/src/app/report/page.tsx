@@ -40,7 +40,8 @@ export default function ReportIssue() {
         image_base64: imageBase64
       };
 
-      const res = await fetch("http://localhost:8000/issues", {
+      const API_URL = process.env.NODE_ENV === 'production' ? '/api/backend' : 'http://localhost:8000';
+      const res = await fetch(`${API_URL}/issues`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
