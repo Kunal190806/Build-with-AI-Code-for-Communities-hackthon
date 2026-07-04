@@ -86,4 +86,4 @@ npm run dev
 3. Navigate to the **MP Dashboard** (`/dashboard`) to view the heatmap, charts, and interact with the AI Chat Assistant.
 
 ---
-*Built with ❤️ for Communities*
+
